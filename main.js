@@ -5,6 +5,8 @@
 // on Programming Languages and Systems, Vol 14, No. 2, April 1992, pages
 // 127-144.
 //
+// See also: https://en.wikipedia.org/wiki/Modulo_operation
+//
 // First, some vocabulary. If we write a / b, then a is called the
 // _dividend_, and b is called the _divisor_.
 //
