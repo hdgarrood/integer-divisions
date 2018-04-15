@@ -100,7 +100,7 @@ function fmod(x,y) {
 // performing division with a dividend a and a divisor b, it makes the most
 // sense to consider only |b| different possibilities for the remainder.
 // However, with truncating division, the fact that the remainder can be either
-// positive or negative means that we actually have 2|b| + 1 possibilities.
+// positive or negative means that we actually have 2|b| - 1 possibilities.
 //
 // Flooring division improves on this situation in that if we fix a divisor b,
 // there are |b| possibilities for the remainder, as we wanted. However, as we
