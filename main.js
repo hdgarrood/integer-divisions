@@ -12,16 +12,16 @@
 //
 // Now, suppose we wish to define an integer division operation, that is,
 // a division operation which accepts two integers and returns another integer.
-// First, remember that when we divide integers, we in fact end up with two
-// integers as a result: the first is called the _quotient_, and it represents
-// the number of times the divisor 'goes into' the dividend, and the second is
-// called the _remainder_, and it represents what is left over after taking
-// away that multiple of the divisor.
+// First, remember that when we divide integers, we really ought to consider
+// getting a _pair_ of integers as a result; the first is called the
+// _quotient_, and it represents the number of times the divisor 'goes into'
+// the dividend, and the second is called the _remainder_, and it represents
+// what is left over after taking away that multiple of the divisor.
 //
 // This idea leads us to the quotient/remainder law: if we divide a by b, and
 // call the quotient q, and the remainder r, then we should have that a = b*q +
-// r. This equation corresponds to saying that "the number of times b goes into
-// a is q, and the remainder is r". For example, 5 goes into 13 twice with
+// r. This law sort of corresponds to saying that "the number of times b goes
+// into a is q, and the remainder is r". For example, 5 goes into 13 twice with
 // remainder 3, so if we choose a = 13 and b = 5, we get q = 2 and r = 3.
 //
 // Note that if we fix a and b, and we have a pair of integers q and r such
@@ -37,9 +37,18 @@
 // of q and r when a and b are both postive: we take r such that 0 <= r < b,
 // and we take q to be the largest integer satisfying b*q <= a. Equivalently,
 // we obtain q by taking the exact result of dividing a by b and rounding down.
+// See the example above: if a=13 and b=5, the largest q we can take is 2,
+// because 5*2=10, and 10 is the largest multiple of 5 which is less than 13.
 //
-// However, when either of a or b are negative, there are a few different
-// options to choose from.
+// Another observation we can make is that no matter what the signs of the
+// a and b are, if the b goes exactly into a, there is only one sensible
+// choice: we should take q to be the exact result of the division, and r to be
+// 0. For example, if we have a=-8 and b=2, then the result of exact division
+// is -4, so in this case we should take q=-4 and r=0.
+//
+// The difficulty comes when either or both of a or b are negative AND when b
+// does not go into a exactly. In this case, there are a few different options
+// to choose from.
 //
 // One of the most common options taken by programming languages is called
 // "truncating" division, because we obtain q by taking the exact result of
@@ -54,7 +63,7 @@ function tmod(x,y) {
   return x % y;
 }
 
-// To give an example, suppose we have a = -2 and b = 3, and we want to divide
+// To give an example, suppose we have a=-2 and b=3, and we want to divide
 // a by b. The exact result of division is -2/3; rounding this towards zero, we
 // obtain q=0. Then, we must choose r=-2 so that the quotient/remainder law is
 // satisfied.
