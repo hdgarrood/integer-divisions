@@ -111,12 +111,12 @@ function fmod(x,y) {
 // this, and it is called Euclidean division:
 
 // Euclidean division
+function ediv(x,y) {
+  return Math.sign(y) * Math.floor(x / Math.abs(y));
+}
 function emod(x,y) {
   var yy = Math.abs(y);
   return ((x % yy) + yy) % yy;
-}
-function ediv(x,y) {
-  return Math.sign(y) * Math.floor(x / Math.abs(y));
 }
 
 // The rounding behaviour of Euclidean division is a little more complex, in
